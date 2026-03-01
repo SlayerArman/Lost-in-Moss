@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg5jrp4d66n0b"]
+
+[ext_resource type="VideoStream" uid="uid://dln4d07hxc376" path="res://Wizard_steps_through_portal_0b2577fa61.ogv" id="1_d2ofq"]
+
+[node name="Outro" type="CanvasLayer"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -61.0
+offset_top = 8.0
+offset_right = 1219.0
+offset_bottom = 728.0
+stream = ExtResource("1_d2ofq")
+volume_db = 3.0
+autoplay = true
