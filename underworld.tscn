@@ -1,0 +1,627 @@
+[gd_scene load_steps=24 format=3 uid="uid://bujf22iga584p"]
+
+[ext_resource type="Texture2D" uid="uid://btnr3gj6ypvt4" path="res://Gemini_Generated_Image_u3bdp2u3bdp2u3bd.png" id="1_6i63m"]
+[ext_resource type="Texture2D" uid="uid://iys70svrfvui" path="res://Mossy Blocks/Long Block.png" id="2_gkn5l"]
+[ext_resource type="PackedScene" uid="uid://2hcgjwd7ycrm" path="res://Scenes/PlayerM.tscn" id="3_fvv0d"]
+[ext_resource type="Script" uid="uid://ckbhfwjump1cl" path="res://playerm.gd" id="3_wde1f"]
+[ext_resource type="Texture2D" uid="uid://87u6loi5sq1f" path="res://Mossy Blocks/Normal Block.png" id="5_ybkla"]
+[ext_resource type="Script" uid="uid://cosr1uyby5x31" path="res://falling_block.gd" id="6_qc7fx"]
+[ext_resource type="Texture2D" uid="uid://bxuuf575ikwnp" path="res://Gemini_Generated_Image_fbfdzzfbfdzzfbfd-removebg-preview.png" id="7_3gr00"]
+[ext_resource type="Script" uid="uid://db26nslqvegf1" path="res://portal.gd" id="7_5sly2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sly2"]
+atlas = ExtResource("7_3gr00")
+region = Rect2(0, 0, 231, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sc8w"]
+atlas = ExtResource("7_3gr00")
+region = Rect2(231, 0, 231, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et6n3"]
+atlas = ExtResource("7_3gr00")
+region = Rect2(462, 0, 231, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpijs"]
+atlas = ExtResource("7_3gr00")
+region = Rect2(693, 0, 231, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n76tw"]
+atlas = ExtResource("7_3gr00")
+region = Rect2(924, 0, 231, 216)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mjs65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sly2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sc8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et6n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpijs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n76tw")
+}],
+"loop": true,
+"name": &"portal anim",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fo6ou"]
+size = Vector2(58, 58)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ybkla"]
+normal = Vector2(-1, 0)
+distance = -149.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wde1f"]
+normal = Vector2(0.9999952, -0.0030959602)
+distance = -113.35859
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qc7fx"]
+normal = Vector2(-0.007246187, 0.9999738)
+distance = -168.03906
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fvv0d"]
+radius = 28.0
+height = 284.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qc7fx"]
+radius = 28.0
+height = 138.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ybkla"]
+load_path = "res://.godot/imported/Falling Block.png-ee8fe5db9a277dec6764f0982f79dfd7.ctex"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gr00"]
+radius = 15.0
+height = 34.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5sly2"]
+radius = 13.0
+height = 32.0
+
+[node name="Underworld" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(659.5, 856)
+scale = Vector2(1.0279949, 0.72869325)
+texture = ExtResource("1_6i63m")
+
+[node name="Portal" type="Area2D" parent="."]
+position = Vector2(1088, 198)
+script = ExtResource("7_5sly2")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Portal"]
+position = Vector2(-68.87501, -112.75)
+scale = Vector2(0.44264075, 0.4189815)
+sprite_frames = SubResource("SpriteFrames_mjs65")
+animation = &"portal anim"
+autoplay = "portal anim"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
+position = Vector2(-59, -107)
+shape = SubResource("RectangleShape2D_fo6ou")
+
+[node name="Player" parent="." instance=ExtResource("3_fvv0d")]
+position = Vector2(-15, -77)
+script = ExtResource("3_wde1f")
+max_speed = 250.0
+acceleration = 1200.0
+friction = 800.0
+jump_velocity = -550.0
+
+[node name="Boundries" type="Node" parent="."]
+
+[node name="Boundary R" type="StaticBody2D" parent="Boundries"]
+position = Vector2(994, 626)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundries/Boundary R"]
+shape = SubResource("WorldBoundaryShape2D_ybkla")
+
+[node name="Boundary L" type="StaticBody2D" parent="Boundries"]
+position = Vector2(117, 563)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundries/Boundary L"]
+shape = SubResource("WorldBoundaryShape2D_wde1f")
+
+[node name="Boundary T" type="StaticBody2D" parent="Boundries"]
+position = Vector2(623, 156)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundries/Boundary T"]
+shape = SubResource("WorldBoundaryShape2D_qc7fx")
+
+[node name="Long Blocks" type="Node" parent="."]
+
+[node name="Long Block" type="StaticBody2D" parent="Long Blocks"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block"]
+position = Vector2(280.5, 173.43752)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block"]
+position = Vector2(280, 170)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Long Block2" type="StaticBody2D" parent="Long Blocks"]
+position = Vector2(-512, 1175)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block2"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block2"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Long Block12" type="StaticBody2D" parent="Long Blocks"]
+position = Vector2(-765, 1183)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block12"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block12"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Long Block3" type="StaticBody2D" parent="Long Blocks"]
+position = Vector2(-253, 1177)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block3"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block3"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Long Block4" type="StaticBody2D" parent="Long Blocks"]
+position = Vector2(17, 1180)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block4"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block4"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Long Block5" type="StaticBody2D" parent="Long Blocks"]
+position = Vector2(288, 1183)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block5"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block5"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Long Block6" type="StaticBody2D" parent="Long Blocks"]
+position = Vector2(557, 1184)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block6"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block6"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Long Block11" type="StaticBody2D" parent="Long Blocks"]
+position = Vector2(831, 1184)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block11"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block11"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Long Block7" type="StaticBody2D" parent="Long Blocks"]
+position = Vector2(-335, 1031)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block7"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block7"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Long Block8" type="StaticBody2D" parent="Long Blocks"]
+position = Vector2(320, 856)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block8"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block8"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Long Block9" type="StaticBody2D" parent="Long Blocks"]
+position = Vector2(-464, 404)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block9"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block9"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Long Block10" type="StaticBody2D" parent="Long Blocks"]
+position = Vector2(32, 153)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Long Blocks/Long Block10"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("2_gkn5l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Long Blocks/Long Block10"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fvv0d")
+metadata/_edit_group_ = true
+
+[node name="Normal Blocks" type="Node" parent="."]
+
+[node name="Normal Block" type="StaticBody2D" parent="Normal Blocks"]
+position = Vector2(-556, 889)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Normal Blocks/Normal Block"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("5_ybkla")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Normal Blocks/Normal Block"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Normal Block2" type="StaticBody2D" parent="Normal Blocks"]
+position = Vector2(94, 721)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Normal Blocks/Normal Block2"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("5_ybkla")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Normal Blocks/Normal Block2"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Normal Block3" type="StaticBody2D" parent="Normal Blocks"]
+position = Vector2(281, 288)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Normal Blocks/Normal Block3"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("5_ybkla")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Normal Blocks/Normal Block3"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Normal Block4" type="StaticBody2D" parent="Normal Blocks"]
+position = Vector2(-578, -11)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Normal Blocks/Normal Block4"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("5_ybkla")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Normal Blocks/Normal Block4"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Normal Block5" type="StaticBody2D" parent="Normal Blocks"]
+position = Vector2(-129, -11)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Normal Blocks/Normal Block5"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("5_ybkla")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Normal Blocks/Normal Block5"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Normal Block6" type="StaticBody2D" parent="Normal Blocks"]
+position = Vector2(377, -172)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Normal Blocks/Normal Block6"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = ExtResource("5_ybkla")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Normal Blocks/Normal Block6"]
+position = Vector2(650, 324.00012)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Falling Blocks" type="Node" parent="."]
+
+[node name="Falling Block" type="RigidBody2D" parent="Falling Blocks"]
+position = Vector2(20, 962)
+gravity_scale = 0.0
+script = ExtResource("6_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Falling Blocks/Falling Block"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = SubResource("CompressedTexture2D_ybkla")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Falling Blocks/Falling Block"]
+position = Vector2(47, -977)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling Blocks/Falling Block/Area2D"]
+position = Vector2(605, 1303)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3gr00")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Falling Blocks/Falling Block"]
+position = Vector2(652, 326)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5sly2")
+metadata/_edit_group_ = true
+
+[node name="Falling Block2" type="RigidBody2D" parent="Falling Blocks"]
+position = Vector2(-339, 774)
+gravity_scale = 0.0
+script = ExtResource("6_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Falling Blocks/Falling Block2"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = SubResource("CompressedTexture2D_ybkla")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Falling Blocks/Falling Block2"]
+position = Vector2(47, -977)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling Blocks/Falling Block2/Area2D"]
+position = Vector2(605, 1303)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3gr00")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Falling Blocks/Falling Block2"]
+position = Vector2(652, 326)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5sly2")
+metadata/_edit_group_ = true
+
+[node name="Falling Block3" type="RigidBody2D" parent="Falling Blocks"]
+position = Vector2(-153, 713)
+gravity_scale = 0.0
+script = ExtResource("6_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Falling Blocks/Falling Block3"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = SubResource("CompressedTexture2D_ybkla")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Falling Blocks/Falling Block3"]
+position = Vector2(47, -977)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling Blocks/Falling Block3/Area2D"]
+position = Vector2(605, 1303)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3gr00")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Falling Blocks/Falling Block3"]
+position = Vector2(652, 326)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5sly2")
+metadata/_edit_group_ = true
+
+[node name="Falling Block4" type="RigidBody2D" parent="Falling Blocks"]
+position = Vector2(-114, 573)
+gravity_scale = 0.0
+script = ExtResource("6_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Falling Blocks/Falling Block4"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = SubResource("CompressedTexture2D_ybkla")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Falling Blocks/Falling Block4"]
+position = Vector2(47, -977)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling Blocks/Falling Block4/Area2D"]
+position = Vector2(605, 1303)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3gr00")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Falling Blocks/Falling Block4"]
+position = Vector2(652, 326)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5sly2")
+metadata/_edit_group_ = true
+
+[node name="Falling Block5" type="RigidBody2D" parent="Falling Blocks"]
+position = Vector2(-220, 459)
+gravity_scale = 0.0
+script = ExtResource("6_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Falling Blocks/Falling Block5"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = SubResource("CompressedTexture2D_ybkla")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Falling Blocks/Falling Block5"]
+position = Vector2(47, -977)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling Blocks/Falling Block5/Area2D"]
+position = Vector2(605, 1303)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3gr00")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Falling Blocks/Falling Block5"]
+position = Vector2(652, 326)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5sly2")
+metadata/_edit_group_ = true
+
+[node name="Falling Block6" type="RigidBody2D" parent="Falling Blocks"]
+position = Vector2(-215, 260)
+gravity_scale = 0.0
+script = ExtResource("6_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Falling Blocks/Falling Block6"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = SubResource("CompressedTexture2D_ybkla")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Falling Blocks/Falling Block6"]
+position = Vector2(47, -977)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling Blocks/Falling Block6/Area2D"]
+position = Vector2(605, 1303)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3gr00")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Falling Blocks/Falling Block6"]
+position = Vector2(652, 326)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5sly2")
+metadata/_edit_group_ = true
+
+[node name="Falling Block7" type="RigidBody2D" parent="Falling Blocks"]
+position = Vector2(111, -119)
+gravity_scale = 0.0
+script = ExtResource("6_qc7fx")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Falling Blocks/Falling Block7"]
+position = Vector2(653, 326)
+scale = Vector2(0.15673828, 0.17521593)
+texture = SubResource("CompressedTexture2D_ybkla")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Falling Blocks/Falling Block7"]
+position = Vector2(47, -977)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Falling Blocks/Falling Block7/Area2D"]
+position = Vector2(605, 1303)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3gr00")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Falling Blocks/Falling Block7"]
+position = Vector2(652, 326)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_5sly2")
+metadata/_edit_group_ = true

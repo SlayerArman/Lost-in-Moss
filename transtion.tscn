@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj4s3n8mijkj5"]
+
+[ext_resource type="Script" uid="uid://bettja6xwyb3n" path="res://transtion.gd" id="1_8ws7s"]
+[ext_resource type="VideoStream" uid="uid://cttcjocvqkxb8" path="res://Transition.ogv" id="1_hntjy"]
+
+[node name="Transtion" type="CanvasLayer"]
+script = ExtResource("1_8ws7s")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("1_hntjy")
+autoplay = true
