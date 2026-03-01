@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://d34m71tdxe8l0"]
+
+[ext_resource type="Script" uid="uid://bn4riibtbvgn8" path="res://Scenes/collectables.gd" id="1_f72gb"]
+[ext_resource type="Texture2D" uid="uid://bu1jnp4m6bfkp" path="res://Gemini_Generated_Image_xqqo5bxqqo5bxqqo-removebg-preview.png" id="2_axqrl"]
+[ext_resource type="AudioStream" uid="uid://cef4tihup63we" path="res://JDSherbert - Ultimate UI SFX Pack - Cursor - 2.ogg" id="3_jch08"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkyok"]
+atlas = ExtResource("2_axqrl")
+region = Rect2(0, 0, 112, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agqr0"]
+atlas = ExtResource("2_axqrl")
+region = Rect2(112, 0, 112, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpjm6"]
+atlas = ExtResource("2_axqrl")
+region = Rect2(224, 0, 112, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm5k2"]
+atlas = ExtResource("2_axqrl")
+region = Rect2(336, 0, 112, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnuku"]
+atlas = ExtResource("2_axqrl")
+region = Rect2(448, 0, 112, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnymt"]
+atlas = ExtResource("2_axqrl")
+region = Rect2(560, 0, 112, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gtbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkyok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agqr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpjm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm5k2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnuku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnymt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2s0re"]
+radius = 5.0
+height = 10.0
+
+[node name="herb" type="Area2D"]
+script = ExtResource("1_f72gb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(237, 265)
+scale = Vector2(0.15848193, 0.09485095)
+sprite_frames = SubResource("SpriteFrames_0gtbk")
+autoplay = "default"
+frame = 5
+frame_progress = 0.65282756
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(236, 264)
+shape = SubResource("CapsuleShape2D_2s0re")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jch08")
+volume_db = 0.435
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

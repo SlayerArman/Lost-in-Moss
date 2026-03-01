@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dd364c6xourq5"]
+
+[ext_resource type="PackedScene" uid="uid://b76qoses7p6cq" path="res://Scenes/player.tscn" id="1_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://bba1gdxjd4ar8" path="res://Gemini_Generated_Image_hphh8xhphh8xhphh.png" id="1_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bfnvyqalsp227" path="res://Scenes/demo_map.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://d34m71tdxe8l0" path="res://Scenes/collectables.tscn" id="5_kry3j"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_21xkr"]
+normal = Vector2(0.99984336, 0.017696343)
+distance = -11.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kry3j"]
+normal = Vector2(-1, 0)
+distance = -11.0
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 114.00001)
+scale = Vector2(0.466195, 0.423077)
+texture = ExtResource("1_jjvhh")
+
+[node name="Demo Map" parent="." instance=ExtResource("2_bo1nx")]
+
+[node name="Player" parent="." instance=ExtResource("1_bo1nx")]
+z_index = 1
+position = Vector2(-18, 47)
+
+[node name="herb" parent="." instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(-3, -118)
+
+[node name="herb2" parent="." instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(278, -116)
+
+[node name="herb3" parent="." instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(579, -113)
+
+[node name="bl" type="StaticBody2D" parent="."]
+
+[node name="left b" type="CollisionShape2D" parent="bl"]
+position = Vector2(11, 107)
+shape = SubResource("WorldBoundaryShape2D_21xkr")
+
+[node name="br" type="StaticBody2D" parent="."]
+
+[node name="right b" type="CollisionShape2D" parent="br"]
+position = Vector2(1139, 115)
+shape = SubResource("WorldBoundaryShape2D_kry3j")
