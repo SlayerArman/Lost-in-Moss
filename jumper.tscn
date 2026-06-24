@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://dgucrk0qhxh4m"]
+
+[ext_resource type="Texture2D" uid="uid://do3arp03wccqf" path="res://Scenes/PlantJump/JumpPlant_00000.png" id="1_6s1it"]
+[ext_resource type="Script" uid="uid://ba6ws5u2ofoqi" path="res://jumper.gd" id="1_gucjw"]
+[ext_resource type="Texture2D" uid="uid://bfski0dsx70n7" path="res://Scenes/PlantJump/JumpPlant_00001.png" id="2_gucjw"]
+[ext_resource type="Texture2D" uid="uid://c7prh275gcp4y" path="res://Scenes/PlantJump/JumpPlant_00002.png" id="3_82tm5"]
+[ext_resource type="Texture2D" uid="uid://bn1ub6ilv34f5" path="res://Scenes/PlantJump/JumpPlant_00003.png" id="4_vc0dr"]
+[ext_resource type="Texture2D" uid="uid://b8vymq4vlc6ps" path="res://Scenes/PlantJump/JumpPlant_00004.png" id="5_eysn0"]
+[ext_resource type="Texture2D" uid="uid://vw8k8sb2ej3w" path="res://Scenes/PlantJump/JumpPlant_00005.png" id="6_ksnbf"]
+[ext_resource type="Texture2D" uid="uid://c38gb2naalx3n" path="res://Scenes/PlantJump/JumpPlant_00006.png" id="7_hnb1h"]
+[ext_resource type="Texture2D" uid="uid://c4dk4yqb1mmc4" path="res://Scenes/PlantJump/JumpPlant_00007.png" id="8_xh41x"]
+[ext_resource type="Texture2D" uid="uid://buvgykktx1goh" path="res://Scenes/PlantJump/JumpPlant_00008.png" id="9_tmygo"]
+[ext_resource type="Texture2D" uid="uid://bjb7qs087oqdx" path="res://Scenes/PlantJump/JumpPlant_00009.png" id="10_hd3bt"]
+[ext_resource type="Texture2D" uid="uid://bqjau1jnc2odw" path="res://Scenes/PlantJump/JumpPlant_00010.png" id="11_ui6ld"]
+[ext_resource type="Texture2D" uid="uid://c3ypudmyoen4v" path="res://Scenes/PlantJump/JumpPlant_00011.png" id="12_qq42d"]
+[ext_resource type="Texture2D" uid="uid://ccsw2le7x3mub" path="res://Scenes/PlantJump/JumpPlant_00012.png" id="13_002iu"]
+[ext_resource type="Texture2D" uid="uid://corylvu5itbd2" path="res://Scenes/PlantJump/JumpPlant_00013.png" id="14_ngp1m"]
+[ext_resource type="Texture2D" uid="uid://4ctwijvysm80" path="res://Scenes/PlantJump/JumpPlant_00014.png" id="15_ga4hx"]
+[ext_resource type="Texture2D" uid="uid://djh710ru443rp" path="res://Scenes/PlantJump/JumpPlant_00015.png" id="16_b07jv"]
+[ext_resource type="Texture2D" uid="uid://crr13idv8xu3r" path="res://Scenes/PlantJump/JumpPlant_00016.png" id="17_6upxu"]
+[ext_resource type="Texture2D" uid="uid://j5w25wpx6im5" path="res://Scenes/PlantJump/JumpPlant_00017.png" id="18_3aj8j"]
+[ext_resource type="Texture2D" uid="uid://bln2gwj6ppb7w" path="res://Scenes/PlantJump/JumpPlant_00018.png" id="19_m4c1k"]
+[ext_resource type="Texture2D" uid="uid://oaukyay2514k" path="res://Scenes/PlantJump/JumpPlant_00019.png" id="20_8ha2m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4cemu"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": ExtResource("1_6s1it")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gucjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_82tm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vc0dr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eysn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ksnbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hnb1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xh41x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tmygo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hd3bt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ui6ld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qq42d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_002iu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ngp1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ga4hx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_b07jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6upxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_3aj8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_m4c1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_8ha2m")
+}],
+"loop": true,
+"name": &"Bounce anim",
+"speed": 20.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j01h8"]
+radius = 101.0
+height = 290.0
+
+[node name="Jumper" type="Node2D" unique_id=754506130]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1628935586]
+script = ExtResource("1_gucjw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=241038408]
+scale = Vector2(0.415, 0.415)
+sprite_frames = SubResource("SpriteFrames_4cemu")
+animation = &"Bounce anim"
+autoplay = "Bounce anim"
+frame_progress = 0.886794
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=9135241]
+rotation = 1.5707964
+scale = Vector2(0.415, 0.415)
+shape = SubResource("CapsuleShape2D_j01h8")

@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://c5w4k3askbcg7"]
+
+[sub_resource type="GDScript" id="GDScript_wi6of"]
+script/source = "extends Area2D
+
+# --- exported ---
+@export var speed: float = 400
+@export var max_distance: float = 1000
+@export var damage: int = 1
+@export var knockback_force: float = 300
+
+# --- node refs ---
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision: CollisionShape2D = $CollisionShape2D
+
+# --- state ---
+var direction: int = 1
+var start_pos: Vector2
+
+func _ready():
+	start_pos = global_position
+	anim.play(\"fireball\")  # make sure this animation exists
+	connect(\"body_entered\", Callable(self, \"_on_body_entered\"))
+
+func _physics_process(delta):
+	# Move fireball
+	position.x += speed * direction * delta
+	
+	# Destroy if too far
+	if global_position.distance_to(start_pos) > max_distance:
+		queue_free()
+
+func set_direction(dir: int):
+	direction = dir
+	scale.x = abs(scale.x) * dir  # flip sprite correctly
+
+func _on_body_entered(body: Node):
+	if body == self:
+		return  # ignore self
+	if body.has_method(\"take_damage\"):
+		body.take_damage(damage)
+		if body.has_method(\"apply_knockback\"):
+			body.apply_knockback(Vector2(direction * knockback_force, 0))
+	queue_free()
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sf4mh"]
+load_path = "res://.godot/imported/Fire_03_03_all.png-167e105a84165396035cbdb436c85556.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdani"]
+atlas = SubResource("CompressedTexture2D_sf4mh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nix7o"]
+atlas = SubResource("CompressedTexture2D_sf4mh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4vqi"]
+atlas = SubResource("CompressedTexture2D_sf4mh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk87q"]
+atlas = SubResource("CompressedTexture2D_sf4mh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gveuj"]
+atlas = SubResource("CompressedTexture2D_sf4mh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smijy"]
+atlas = SubResource("CompressedTexture2D_sf4mh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1q1f"]
+atlas = SubResource("CompressedTexture2D_sf4mh")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cr5o"]
+atlas = SubResource("CompressedTexture2D_sf4mh")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nymw6"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_wdani")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nix7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4vqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk87q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gveuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smijy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1q1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cr5o")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7apm1"]
+radius = 9.219544
+
+[node name="Fireball" type="Node2D" unique_id=1866104448]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=551970608]
+script = SubResource("GDScript_wi6of")
+
+[node name="Timer" type="Timer" parent="Area2D" unique_id=335653219]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=527780876]
+position = Vector2(311, 181.00002)
+rotation = -1.5707964
+scale = Vector2(1.035034, 1.1645219)
+sprite_frames = SubResource("SpriteFrames_nymw6")
+animation = &"fireball"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1094269898]
+position = Vector2(322, 183)
+scale = Vector2(0.99999994, 1)
+shape = SubResource("CircleShape2D_7apm1")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

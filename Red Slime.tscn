@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://ch0o20xhuyo1d"]
+
+[ext_resource type="Texture2D" uid="uid://gqluwbbm5psm" path="res://LargeSlime_Red.png" id="1_5q3vh"]
+[ext_resource type="Script" uid="uid://ddbs4gusw615b" path="res://red_slime.gd" id="1_dpnxd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpnxd"]
+atlas = ExtResource("1_5q3vh")
+region = Rect2(0, 310, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g6yj"]
+atlas = ExtResource("1_5q3vh")
+region = Rect2(310, 310, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4mdf"]
+atlas = ExtResource("1_5q3vh")
+region = Rect2(620, 310, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lbyf"]
+atlas = ExtResource("1_5q3vh")
+region = Rect2(930, 310, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3clwu"]
+atlas = ExtResource("1_5q3vh")
+region = Rect2(0, 0, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0csw2"]
+atlas = ExtResource("1_5q3vh")
+region = Rect2(310, 0, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3on8"]
+atlas = ExtResource("1_5q3vh")
+region = Rect2(620, 0, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxeih"]
+atlas = ExtResource("1_5q3vh")
+region = Rect2(930, 0, 310, 310)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85vt7"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_dpnxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g6yj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4mdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lbyf")
+}],
+"loop": false,
+"name": &"Killed",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3clwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0csw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3on8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxeih")
+}],
+"loop": true,
+"name": &"Movement",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tkvvn"]
+radius = 93.0
+height = 252.0
+
+[node name="Red Slime" type="Node2D" unique_id=864077391]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=428387154]
+script = ExtResource("1_dpnxd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1608426982]
+position = Vector2(10.999996, 0)
+scale = Vector2(1.0709677, 1)
+sprite_frames = SubResource("SpriteFrames_85vt7")
+animation = &"Movement"
+
+[node name="EdgeRay" type="RayCast2D" parent="CharacterBody2D" unique_id=1660127330]
+position = Vector2(160, 120)
+target_position = Vector2(0, 20)
+
+[node name="AttackArea" type="Area2D" parent="CharacterBody2D" unique_id=1029503792]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AttackArea" unique_id=1674236546]
+position = Vector2(30, 40)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tkvvn")
+debug_color = Color(1.0107458e-06, 0.6289438, 0.49704915, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1771783292]
+position = Vector2(30, 40)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tkvvn")
+debug_color = Color(1.0107458e-06, 0.6289438, 0.49704915, 0.41960785)

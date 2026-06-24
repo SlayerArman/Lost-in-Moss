@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://d34m71tdxe8l0"]
+
+[ext_resource type="Script" uid="uid://bn4riibtbvgn8" path="res://Scenes/collectables.gd" id="1_f72gb"]
+[ext_resource type="Texture2D" uid="uid://bhxdffv5benx7" path="res://Herb.png" id="2_f72gb"]
+[ext_resource type="AudioStream" uid="uid://cef4tihup63we" path="res://JDSherbert - Ultimate UI SFX Pack - Cursor - 2.ogg" id="3_jch08"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axqrl"]
+atlas = ExtResource("2_f72gb")
+region = Rect2(0, 0, 234, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jch08"]
+atlas = ExtResource("2_f72gb")
+region = Rect2(234, 0, 234, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkyok"]
+atlas = ExtResource("2_f72gb")
+region = Rect2(468, 0, 234, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agqr0"]
+atlas = ExtResource("2_f72gb")
+region = Rect2(702, 0, 234, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpjm6"]
+atlas = ExtResource("2_f72gb")
+region = Rect2(936, 0, 234, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm5k2"]
+atlas = ExtResource("2_f72gb")
+region = Rect2(1170, 0, 234, 209)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gtbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axqrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jch08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkyok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agqr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpjm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm5k2")
+}],
+"loop": true,
+"name": &"herb anim",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2s0re"]
+radius = 5.0
+height = 10.0
+
+[node name="herb" type="Area2D" unique_id=2039920845]
+script = ExtResource("1_f72gb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1542438356]
+position = Vector2(236.99998, 265)
+scale = Vector2(0.08119664, 0.07613358)
+sprite_frames = SubResource("SpriteFrames_0gtbk")
+animation = &"herb anim"
+autoplay = "herb anim"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1336974318]
+position = Vector2(236, 264)
+shape = SubResource("CapsuleShape2D_2s0re")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=15616122]
+stream = ExtResource("3_jch08")
+volume_db = 0.435
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

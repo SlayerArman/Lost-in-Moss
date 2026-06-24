@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dd364c6xourq5"]
+
+[ext_resource type="PackedScene" uid="uid://b76qoses7p6cq" path="res://Scenes/player.tscn" id="1_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://bba1gdxjd4ar8" path="res://Gemini_Generated_Image_hphh8xhphh8xhphh.png" id="1_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bfnvyqalsp227" path="res://Scenes/demo_map.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://d34m71tdxe8l0" path="res://Scenes/collectables.tscn" id="5_kry3j"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_21xkr"]
+normal = Vector2(0.99984336, 0.017696343)
+distance = -11.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kry3j"]
+normal = Vector2(-1, 0)
+distance = -11.0
+
+[node name="Main" type="Node2D" unique_id=282849840]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=944728868]
+modulate = Color(0.7279856, 0.7279857, 0.7279856, 1)
+position = Vector2(576, 106)
+scale = Vector2(0.466195, 0.423077)
+texture = ExtResource("1_jjvhh")
+
+[node name="Demo Map" parent="." unique_id=1468476124 instance=ExtResource("2_bo1nx")]
+
+[node name="Player" parent="." unique_id=2113667946 instance=ExtResource("1_bo1nx")]
+z_index = 1
+position = Vector2(-18, 47)
+
+[node name="bl" type="StaticBody2D" parent="." unique_id=2007206393]
+
+[node name="left b" type="CollisionShape2D" parent="bl" unique_id=109988024]
+position = Vector2(11, 107)
+shape = SubResource("WorldBoundaryShape2D_21xkr")
+
+[node name="br" type="StaticBody2D" parent="." unique_id=1477569388]
+
+[node name="right b" type="CollisionShape2D" parent="br" unique_id=265143893]
+position = Vector2(1139, 115)
+shape = SubResource("WorldBoundaryShape2D_kry3j")
+
+[node name="Herbs" type="Node" parent="." unique_id=38822896]
+
+[node name="herb9" parent="Herbs" unique_id=1078977921 instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(744, -116)
+player_node_path = NodePath("../../Player")
+
+[node name="herb8" parent="Herbs" unique_id=478365647 instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(779, -210)
+player_node_path = NodePath("../../Player")
+
+[node name="herb6" parent="Herbs" unique_id=493105400 instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(44, -178)
+player_node_path = NodePath("../../Player")
+
+[node name="herb5" parent="Herbs" unique_id=1666897900 instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(227, -225)
+player_node_path = NodePath("../../Player")
+
+[node name="herb4" parent="Herbs" unique_id=2039920845 instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(474, -195)
+player_node_path = NodePath("../../Player")
+
+[node name="herb3" parent="Herbs" unique_id=259248527 instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(583, -119)
+player_node_path = NodePath("../../Player")
+
+[node name="herb7" parent="Herbs" unique_id=1758069764 instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(-181, -195)
+player_node_path = NodePath("../../Player")
+
+[node name="herb2" parent="Herbs" unique_id=1550237322 instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(275, -134)
+player_node_path = NodePath("../../Player")
+
+[node name="herb" parent="Herbs" unique_id=366221232 instance=ExtResource("5_kry3j")]
+z_index = 2
+position = Vector2(-2, -121)
+player_node_path = NodePath("../../Player")

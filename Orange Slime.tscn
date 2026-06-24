@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dvo3ynkv3wllc"]
+
+[ext_resource type="Script" uid="uid://brimbemtriqu4" path="res://orange_slime.gd" id="1_01xw0"]
+[ext_resource type="Texture2D" uid="uid://c473q13xoubap" path="res://MediumSlime_Orange.png" id="1_tkvvn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkvvn"]
+atlas = ExtResource("1_tkvvn")
+region = Rect2(0, 310, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85vt7"]
+atlas = ExtResource("1_tkvvn")
+region = Rect2(310, 310, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kn8b"]
+atlas = ExtResource("1_tkvvn")
+region = Rect2(620, 310, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs22v"]
+atlas = ExtResource("1_tkvvn")
+region = Rect2(930, 310, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npck3"]
+atlas = ExtResource("1_tkvvn")
+region = Rect2(0, 0, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdmdo"]
+atlas = ExtResource("1_tkvvn")
+region = Rect2(310, 0, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fwnx"]
+atlas = ExtResource("1_tkvvn")
+region = Rect2(620, 0, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_affkl"]
+atlas = ExtResource("1_tkvvn")
+region = Rect2(930, 0, 310, 310)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85vt7"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_tkvvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85vt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kn8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs22v")
+}],
+"loop": false,
+"name": &"Killed",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_npck3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdmdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fwnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_affkl")
+}],
+"loop": true,
+"name": &"Movement",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tkvvn"]
+radius = 84.0
+height = 200.0
+
+[node name="Orange Slime" type="Node2D" unique_id=864077391]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2023728042]
+script = ExtResource("1_01xw0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1608426982]
+position = Vector2(5.5, 0)
+scale = Vector2(1.0354838, 1)
+sprite_frames = SubResource("SpriteFrames_85vt7")
+animation = &"Movement"
+
+[node name="EdgeRay" type="RayCast2D" parent="CharacterBody2D" unique_id=2089555598]
+position = Vector2(160, 120)
+target_position = Vector2(0, 40)
+
+[node name="AttackArea" type="Area2D" parent="CharacterBody2D" unique_id=44416920]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AttackArea" unique_id=1674236546]
+position = Vector2(2, 50)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tkvvn")
+debug_color = Color(0.9795752, 0, 0.39078584, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1425597479]
+position = Vector2(2, 50)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tkvvn")
+debug_color = Color(0.9795752, 0, 0.39078584, 0.41960785)

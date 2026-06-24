@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://b7vnulrh8hrbs"]
+
+[ext_resource type="Script" uid="uid://4yewujxtmch" path="res://void_essnce.gd" id="1_pm0s8"]
+[ext_resource type="Texture2D" uid="uid://bv4n7hgt45su5" path="res://orb.png" id="1_s8ppe"]
+[ext_resource type="AudioStream" uid="uid://cef4tihup63we" path="res://JDSherbert - Ultimate UI SFX Pack - Cursor - 2.ogg" id="3_j0l25"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm0s8"]
+atlas = ExtResource("1_s8ppe")
+region = Rect2(15, 0, 232, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0l25"]
+atlas = ExtResource("1_s8ppe")
+region = Rect2(247, 0, 232, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqd61"]
+atlas = ExtResource("1_s8ppe")
+region = Rect2(479, 0, 232, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkuki"]
+atlas = ExtResource("1_s8ppe")
+region = Rect2(711, 0, 232, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_851g2"]
+atlas = ExtResource("1_s8ppe")
+region = Rect2(943, 0, 232, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h127"]
+atlas = ExtResource("1_s8ppe")
+region = Rect2(1175, 0, 232, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nrrte"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm0s8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0l25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqd61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkuki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_851g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h127")
+}],
+"loop": true,
+"name": &"Void Anim",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2moah"]
+radius = 16.763054
+
+[node name="Essence" type="Node2D" unique_id=2067334803]
+
+[node name="Void Essence" type="Area2D" parent="." unique_id=812289195]
+position = Vector2(118, -4)
+script = ExtResource("1_pm0s8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Void Essence" unique_id=1101175988]
+position = Vector2(-116, 8.000008)
+scale = Vector2(0.33620688, 0.3372396)
+sprite_frames = SubResource("SpriteFrames_nrrte")
+animation = &"Void Anim"
+autoplay = "Void Anim"
+frame_progress = 0.78674847
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void Essence" unique_id=379247194]
+position = Vector2(-117, 6)
+shape = SubResource("CircleShape2D_2moah")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Void Essence" unique_id=1027083744]
+position = Vector2(-33, 85)
+stream = ExtResource("3_j0l25")
+volume_db = 5.0
+
+[connection signal="body_entered" from="Void Essence" to="Void Essence" method="_on_body_entered"]

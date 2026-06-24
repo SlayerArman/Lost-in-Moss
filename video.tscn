@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1dw1l3u4myvx"]
+
+[ext_resource type="VideoStream" uid="uid://d3defsrbyr6li" path="res://Intro.ogv" id="1_25iqp"]
+[ext_resource type="Script" uid="uid://cnrhhws4iapa4" path="res://video.gd" id="1_p518d"]
+
+[node name="Intro" type="CanvasLayer"]
+script = ExtResource("1_p518d")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -61.0
+offset_top = 8.0
+offset_right = 1219.0
+offset_bottom = 728.0
+stream = ExtResource("1_25iqp")
+autoplay = true

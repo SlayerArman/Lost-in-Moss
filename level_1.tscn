@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bbcej3nne2sas"]
+
+[ext_resource type="PackedScene" uid="uid://bujf22iga584p" path="res://underworld.tscn" id="1_3hls8"]
+
+[node name="Level 1" type="Node2D" unique_id=808446631]
+
+[node name="Underworld" parent="." unique_id=1851512549 instance=ExtResource("1_3hls8")]
