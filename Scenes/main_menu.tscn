@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://c1n7lbtrjmk73"]
+
+[ext_resource type="Texture2D" uid="uid://br8pgdj0f5hgh" path="res://Screenshot 2026-08-04 125240.png" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://gcx834uv0l4m" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00000.png" id="2_ehtkc"]
+[ext_resource type="Texture2D" uid="uid://c4tdke0hmid1f" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00001.png" id="3_6dk6o"]
+[ext_resource type="Texture2D" uid="uid://blus7j82ob7hj" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00002.png" id="4_jr6u5"]
+[ext_resource type="Texture2D" uid="uid://p8tmaigfja0u" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00003.png" id="5_6m47u"]
+[ext_resource type="Texture2D" uid="uid://cc03jk4fdeksu" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00004.png" id="6_84iac"]
+[ext_resource type="Texture2D" uid="uid://b8hhmw4tjxma6" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00005.png" id="7_5n0dv"]
+[ext_resource type="Texture2D" uid="uid://btqmh8xdinc76" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00006.png" id="8_ne6ao"]
+[ext_resource type="Texture2D" uid="uid://c5l5qem32hgoj" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00007.png" id="9_tt8ml"]
+[ext_resource type="Texture2D" uid="uid://c4qkrde4qfxwd" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00008.png" id="10_fmarx"]
+[ext_resource type="Texture2D" uid="uid://dwwtigebpsxc5" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00009.png" id="11_hkdq0"]
+[ext_resource type="Texture2D" uid="uid://by3hnbnehw7hy" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00010.png" id="12_xcoo4"]
+[ext_resource type="Texture2D" uid="uid://dh2am5ms3x76p" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00011.png" id="13_jw7lb"]
+[ext_resource type="Texture2D" uid="uid://wpdy5l4cau88" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00012.png" id="14_6vfk8"]
+[ext_resource type="Texture2D" uid="uid://dfi3uuclqc3jp" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00013.png" id="15_1xund"]
+[ext_resource type="Texture2D" uid="uid://db2k83gdqgom3" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00014.png" id="16_msuys"]
+[ext_resource type="Texture2D" uid="uid://8g1g6ojcvdwc" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00015.png" id="17_aylim"]
+[ext_resource type="Texture2D" uid="uid://d18fvdopf2sne" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00016.png" id="18_y82t1"]
+[ext_resource type="Texture2D" uid="uid://c48rnsa5ruxsf" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00017.png" id="19_bmhhk"]
+[ext_resource type="Texture2D" uid="uid://dv6aavg1wkblf" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00018.png" id="20_pddej"]
+[ext_resource type="Texture2D" uid="uid://b4hecyl0kvcf7" path="res://Wizard Animations/2BlueWizardIdle/Chara - BlueIdle00019.png" id="21_ko05x"]
+[ext_resource type="FontFile" uid="uid://c0ls2ufcxl8p7" path="res://norteam-norteam-texture-01-400.ttf" id="22_6dk6o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erv1k"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.057996348, 0.057996348, 0.05799634, 0.6)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_erv1k"]
+texture = ExtResource("1_28flt")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ehtkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6dk6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jr6u5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6m47u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_84iac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5n0dv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ne6ao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tt8ml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fmarx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hkdq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xcoo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jw7lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_6vfk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_1xund")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_msuys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_aylim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_y82t1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_bmhhk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_pddej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ko05x")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 15.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vrlf"]
+bg_color = Color(0, 0, 0, 0.3529412)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6m47u"]
+
+[node name="main_menu" type="Control" unique_id=1875031901]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=686527271]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.25
+offset_top = -45.0
+offset_right = 203.25
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=485953008]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_erv1k")
+text = "START GAME"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1675123559]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_erv1k")
+text = "HOW TO PLAY"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=668838549]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_erv1k")
+text = "EXIT"
+
+[node name="Panel" type="Panel" parent="." unique_id=920210333]
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_erv1k")
+
+[node name="wizard" type="AnimatedSprite2D" parent="." unique_id=1341390494]
+z_index = -2
+position = Vector2(217, 497)
+scale = Vector2(0.6298828, 0.5585937)
+sprite_frames = SubResource("SpriteFrames_1vivr")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 19
+frame_progress = 1.0
+
+[node name="Panel2" type="Panel" parent="." unique_id=1042062833]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8vrlf")
+
+[node name="Label" type="Label" parent="." unique_id=1523321730]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -213.0
+offset_right = 55.0
+offset_bottom = -190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("22_6dk6o")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6m47u")
+text = "LOST IN MOSS"
