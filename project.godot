@@ -15,12 +15,16 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Lost in Moss"
-run/main_scene="uid://d1dw1l3u4myvx"
+run/main_scene="uid://c1n7lbtrjmk73"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [autoload]
 
 Score="*uid://b076dugvcx007"
+
+[display]
+
+mouse_cursor/custom_image="uid://bdorr3v4gpi6g"
 
 [editor_plugins]
 
